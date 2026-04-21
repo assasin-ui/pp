@@ -1,0 +1,69 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<section class="py-5" style="background: #f8f9fa; min-height: 100vh;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+
+        <div class="card shadow-lg border-0" style="border-radius: 20px; overflow: hidden;">
+          
+          <!-- Header -->
+          <div class="card-header text-white text-center py-4" 
+               style="background: linear-gradient(135deg, #2c3e50, #3498db);">
+            <h2 class="mb-0">AI Assistant Doctor</h2>
+            <p class="mb-0 mt-2">Ask me anything about your result — I'm here to help</p>
+          </div>
+
+          <!-- Chat Messages -->
+          <div class="card-body p-4" style="height: 550px; overflow-y: auto; background: #ffffff;">
+            {% for msg in messages %}
+              {% if msg.role == 'assistant' %}
+                <div class="d class="mb-4">
+                  <div class="d-flex align-items-start">
+                    <div class="bg-primary text-white p-3 rounded-3 shadow-sm" 
+                         style="border-radius: 18px; max-width: 85%; line-height: 1.6;">
+                      {{ msg.content | replace('\n', '<br>') | safe }}
+                    </div>
+                  </div>
+                </div>
+              {% else %}
+                <div class="mb-4 text-end">
+                  <div class="d-inline-block bg-light text-dark p-3 rounded-3 shadow-sm" 
+                       style="border-radius: 18px; max-width: 85%; line-height: 1.6;">
+                    {{ msg.content }}
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          <!-- Input Form -->
+          <div class="card-footer bg-white p-4 border-0">
+            <form method="POST">
+              <div class="input-group input-group-lg">
+                <input type="text" name="question" class="form-control rounded-pill px-4 py-3" 
+                       placeholder="Type your question here..." required autofocus>
+                <button type="submit" class="btn btn-primary rounded-pill px-5 ms-2">
+                  Send
+                </button>
+              </div>
+            </form>
+
+            <div class="text-center mt-4">
+              <a href="{{ url_for('new_test') }}" class="btn btn-outline-success">New Test</a>
+                New Test
+              </a>
+              <a href="{{ url_for('home') }}" class="btn btn-outline-secondary">
+                Home
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

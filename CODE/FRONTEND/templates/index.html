@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  
+  <title>PARKINSON’S DISEASE DETECTION</title>
+  <meta name="description" content="AI-powered early detection of Parkinson's Disease using voice analysis" />
+
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
+  
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  
+  <!-- Custom CSS -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet" />
+
+  <style>
+    .navbar-brand span { font-weight: bold; color: #e74c3c; }
+    .nav-link:hover { color: #e74c3c !important; }
+    .btn-primary { background-color: #e74c3c; border: none; }
+    .btn-primary:hover { background-color: #c0392b; }
+    .carousel-item img { border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+  </style>
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- Header Section -->
+    <header class="header_section">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+          <span>PARKINSON’S DETECTION</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item {{ 'active' if request.path == '/' else '' }}">
+              <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            </li>
+            <li class="nav-item {{ 'active' if request.path == '/about' else '' }}">
+              <a class="nav-link" href="{{ url_for('about') }}">About</a>
+            </li>
+            <li class="nav-item {{ 'active' if request.path == '/view' else '' }}">
+              <a class="nav-link"href="/view">View Data</a>
+            </li>
+            <li class="nav-item {{ 'active' if request.path == '/model' else '' }}">
+              <a class="nav-link" href="{{ url_for('model') }}">Model</a>
+            </li>
+            <li class="nav-item {{ 'active' if request.path == '/prediction' else '' }}">
+              <a class="nav-link" href="{{ url_for('prediction') }}">Prediction</a>
+            </li>
+            <li class="nav-item {{ 'active' if request.path == '/faq' else '' }}">
+              <a class="nav-link" href="{{ url_for('faq') }}">FAQ</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- End Header -->
+
+    <!-- Slider Section (Only on Home Page) -->
+    {% if request.path == '/' %}
+    <section class="slider_section">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="detail-box text-center text-lg-left">
+              <h1 style="font-size: 3.5rem; color: #2c3e50;">
+                Early Detection of<br>
+                <span style="color: #e74c3c;">Parkinson’s Disease</span><br>
+                Using Voice Analysis
+              </h1>
+              <p style="font-size: 1.2rem; margin: 20px 0;">
+                Our AI analyzes subtle changes in your voice to detect early signs of Parkinson’s Disease — 
+                non-invasive, fast, and accurate.
+              </p>
+              <a href="{{ url_for('prediction') }}" class="btn btn-primary btn-lg px-5 py-3">
+                Start Detection Now
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img src="{{ url_for('static', filename='images/slider-img.jpg') }}" 
+                 alt="Parkinson's Voice Analysis" class="img-fluid rounded shadow" style="max-height: 550px;" />
+          </div>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+  </div>
+
+  <!-- Main Content Block (for all other pages) -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 mt-5" style="background: #2c3e50; color: white;">
+    <p>&copy; 2025 Parkinson’s Disease Detection System | Made with AI for Better Health</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+</body>
+</html>

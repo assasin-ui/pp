@@ -1,0 +1,266 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<section id="contact" class="contact">
+  <center>
+
+    {% if prediction %}
+    
+<div class="alert alert-info text-center" style="margin: 20px auto; max-width: 600px;">
+    
+    <h3 style="color: rgb(255, 0, 0); font-weight: bold;">
+        🧠 Result: {{ prediction }}
+    </h3>
+    <h5>Confidence: {{ confidence }}%</h5>
+    <hr>
+    <h4>Want a detailed explanation from AI Doctor?</h4>
+    <a href="{{ url_for('chatbot') }}" class="btn btn-success btn-lg">Talk to AI Assistant</a>
+</div>
+    {% endif %}
+
+  <div class="section-title">
+      <h2 style=" color: rgb(255, 0, 0);">Prediction</h2>
+  </div>
+
+  <div class="col-12">
+
+  <!-- Tab switcher -->
+  <ul class="nav nav-tabs justify-content-center mb-4" id="inputTab">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#voiceTab">🎙️ Voice Upload</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#manualTab">✏️ Manual Entry</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+
+    <!-- Voice Upload Tab -->
+    <div class="tab-pane fade show active" id="voiceTab">
+      <form action="{{ url_for('prediction') }}" method="post"
+            enctype="multipart/form-data">
+        <input type="hidden" name="input_mode" value="audio">
+        <div class="text-center mt-3">
+          <div class="card mx-auto p-4"
+               style="max-width:500px; border: 2px dashed #e74c3c;">
+            <h5 class="mb-3">Upload a Voice Recording</h5>
+            <p class="text-muted small">
+              Say a sustained vowel (e.g. "aaaaah") for 5–10 seconds.<br>
+              Accepted: .wav, .mp3, .ogg, .m4a
+            </p>
+            <input type="file" name="audio"
+                   accept=".wav,.mp3,.ogg,.m4a"
+                   class="form-control mt-2" required>
+            <br>
+            <button type="submit" class="btn btn-primary btn-lg w-100"
+                    style="height:50px;">
+              🧠 Analyze Voice
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Manual Entry Tab (your original 40 fields) -->
+    <div class="tab-pane fade" id="manualTab">
+      <form action="{{ url_for('prediction') }}" method="post">
+        <input type="hidden" name="input_mode" value="manual">
+
+        <div class="row">
+          <form action="{{url_for('prediction')}}" method="post" role="form" class="info">
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="std_6th_delta_delta" step="0.0000000000000001" placeholder="std_6th_delta_delta" required>
+                </div><br>
+                
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="std_8th_delta_delta" step="0.0000000000000001" placeholder="std_8th_delta_delta" required>
+                </div><br>
+          
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="std_9th_delta_delta" step="0.0000000000000001" placeholder="std_9th_delta_delta" required>
+                </div><br>
+          
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_entropy_shannon_2_coef" step="0.0000000000000001" placeholder="app_entropy_shannon_2_coef" required>
+                </div><br>
+          
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_entropy_shannon_3_coef" step="0.0000000000000001" placeholder="app_entropy_shannon_3_coef" required>
+                </div><br>
+          
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_entropy_shannon_4_coef" step="0.0000000000000001" placeholder="app_entropy_shannon_4_coef" required>
+                </div><br>
+          
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_entropy_shannon_5_coef" step="0.0000000000000001" placeholder="app_entropy_shannon_5_coef" required>
+                </div><br>
+          
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_entropy_shannon_6_coef" step="0.0000000000000001" placeholder="app_entropy_shannon_6_coef" required>
+                </div><br>
+          
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_entropy_shannon_7_coef" step="0.0000000000000001" placeholder="app_entropy_shannon_7_coef" required>
+                </div><br>
+          
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_entropy_shannon_8_coef" step="0.0000000000000001" placeholder="app_entropy_shannon_8_coef" required>
+                </div><br>
+          
+            </div>
+
+            <div class="col">
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_entropy_shannon_9_coef" step="0.0000000000000001" placeholder="app_entropy_shannon_9_coef" required>
+                </div><br>
+          
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_entropy_shannon_10_coef" step="0.0000000000000001" placeholder="app_entropy_shannon_10_coef" required>
+                </div><br>
+          
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_entropy_log_3_coef" step="0.0000000000000001" placeholder="app_entropy_log_3_coef" required>
+                </div><br>
+          
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_entropy_log_5_coef" step="0.0000000000000001" placeholder="app_entropy_log_5_coef" required>
+                </div><br>
+          
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_entropy_log_6_coef" step="0.0000000000000001" placeholder="app_entropy_log_6_coef" required>
+                </div><br>
+          
+                <div class="form-group mt-3">
+                  <input style="height: 50px;" type="number" class="form-control" name="app_entropy_log_7_coef" step="0.0000000000000001" placeholder="app_entropy_log_7_coef" required>
+              </div><br>
+              
+              <div class="form-group mt-3">
+                  <input style="height: 50px;" type="number" class="form-control" name="app_entropy_log_8_coef" step="0.0000000000000001" placeholder="app_entropy_log_8_coef" required>
+              </div><br>
+          
+              <div class="form-group mt-3">
+                  <input style="height: 50px;" type="number" class="form-control" name="app_entropy_log_9_coef" step="0.0000000000000001" placeholder="app_entropy_log_9_coef" required>
+              </div><br>
+          
+              <div class="form-group mt-3">
+                  <input style="height: 50px;" type="number" class="form-control" name="app_entropy_log_10_coef" step="0.0000000000000001" placeholder="app_entropy_log_10_coef" required>
+              </div><br>
+          
+              <div class="form-group mt-3">
+                  <input style="height: 50px;" type="number" class="form-control" name="app_TKEO_std_9_coef" step="0.0000000000000001" placeholder="app_TKEO_std_9_coef" required>
+              </div><br>
+            </div>
+
+            <div class="col">
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_TKEO_std_10_coef" step="0.0000000000000001" placeholder="app_TKEO_std_10_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_entropy_shannon_4_coef" step="0.0000000000000001" placeholder="app_LT_entropy_shannon_4_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_entropy_shannon_5_coef" step="0.0000000000000001" placeholder="app_LT_entropy_shannon_5_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_entropy_shannon_6_coef" step="0.0000000000000001" placeholder="app_LT_entropy_shannon_6_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_entropy_shannon_7_coef" step="0.0000000000000001" placeholder="app_LT_entropy_shannon_7_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_entropy_shannon_8_coef" step="0.0000000000000001" placeholder="app_LT_entropy_shannon_8_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_entropy_shannon_9_coef" step="0.0000000000000001" placeholder="app_LT_entropy_shannon_9_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_entropy_shannon_10_coef" step="0.0000000000000001" placeholder="app_LT_entropy_shannon_10_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_entropy_log_3_coef" step="0.0000000000000001" placeholder="app_LT_entropy_log_3_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_entropy_log_4_coef" step="0.0000000000000001" placeholder="app_LT_entropy_log_4_coef" required>
+                </div><br>
+            </div>
+
+            <div class="col">
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_entropy_log_5_coef" step="0.0000000000000001" placeholder="app_LT_entropy_log_5_coef" required>
+                </div><br>
+             
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_entropy_log_6_coef" step="0.0000000000000001" placeholder="app_LT_entropy_log_6_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_entropy_log_7_coef" step="0.0000000000000001" placeholder="app_LT_entropy_log_7_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_entropy_log_8_coef" step="0.0000000000000001" placeholder="app_LT_entropy_log_8_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_entropy_log_9_coef" step="0.0000000000000001" placeholder="app_LT_entropy_log_9_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_entropy_log_10_coef" step="0.0000000000000001" placeholder="app_LT_entropy_log_10_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_TKEO_mean_8_coef" step="0.0000000000000001" placeholder="app_LT_TKEO_mean_8_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="app_LT_TKEO_std_7_coef" step="0.0000000000000001" placeholder="app_LT_TKEO_std_7_coef" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="tqwt_entropy_log_dec_35" step="0.0000000000000001" placeholder="tqwt_entropy_log_dec_35" required>
+                </div><br>
+            
+                <div class="form-group mt-3">
+                    <input style="height: 50px;" type="number" class="form-control" name="tqwt_TKEO_mean_dec_7" step="0.0000000000000001" placeholder="tqwt_TKEO_mean_dec_7" required>
+                </div><br>
+            </div>
+        </div>
+
+      
+      <div class="text-center"><button style="height: 50px; width: 300px;" type="submit" class="btn btn-primary">Submit</button></div>
+      </form>
+  </div>
+        </div>
+
+        <div class="text-center mt-3">
+          <button type="submit" class="btn btn-primary"
+                  style="height:50px; width:300px;">
+            Submit Manual Values
+          </button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+      
+  </center>
+</section>
+
+
+  {% endblock %}

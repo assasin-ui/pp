@@ -1,0 +1,17 @@
+References we are taken from this Base papaer:
+
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10086231/
+
+
+
+1] Abirami S., Chitra P. (2020). Energy-efficient edge based real-time healthcare support system. Adv. Comp. 117, 339–368. 10.1016/bs.adcom.2019.09.007 [CrossRef] [Google Scholar]
+2] Al-Fatlawi A. H., Jabardi M. H., Ling S. H. (2016). “Efficient diagnosis system for parkinson's disease using deep belief network,” in 2016 IEEE Congress on evolutionary computation (CEC) (Vancouver, BC, Canada: IEEE; ), 1324–1330. 10.1109/CEC.2016.7743941 [CrossRef] [Google Scholar]
+3] Bilgen I., Guvercin G., Rekik I. (2020). Machine learning methods for brain network classification: application to autism diagnosis using cortical morphological networks. J. Neurosci. Meth. 343, 108799. 10.1016/j.jneumeth.2020.108799 [PubMed] [CrossRef] [Google Scholar]
+4] Charbuty B., Abdulazeez A. (2021). Classification based on decision tree algorithm for machine learning. J. Appl. Sci. Technol. Trends. 2, 20–28. 10.38094/jastt20165 [CrossRef] [Google Scholar]
+5] Das R. (2010). A comparison of multiple classification methods for diagnosis of parkinson disease. Expert Syst. Appl. 37, 1568–1572. 10.1016/j.eswa.2009.06.040 [CrossRef] [Google Scholar]
+6] Desai R. (2019). Top 10 Python Libraries for Data Science. Available online at: https://towardsdatascience.com/top-10-python-libraries-for-data-science-cd82294ec266 (accessed July 3, 2022).
+7] Fothergill-Misbah N., Maroo H., Hooker J., Kwasa J., Walker R. (2020). Parkinson's disease medication in kenya–situation analysis. Pharmaceutica l J. Kenya. 24, 38–41. [Google Scholar]
+8] Gil D., Manuel D. J. (2009). Diagnosing parkinson by using artificial neural networks and support vector machines. Glob. J. Comput. Sci. Technol. 9, 63–71. Available online at: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.182.7856&rep=rep1&type=pdf
+9] Harel B., Cannizzaro M., Snyder P. J. (2004). Variability in fundamental frequency during speech in prodromal and incipient parkinson's disease: a longitudinal case study. Brain Cognit. 56, 24–29. 10.1016/j.bandc.2004.05.002 [PubMed] [CrossRef] [Google Scholar]
+10] Hossain E., Hossain M. F., Rahaman M. A. (2019). “A color and texture based approach for the detection and classification of plant leaf disease using knn classifier,” in 2019 International Conference on Electrical, Computer and Communication Engineering (ECCE) (Cox's Bazar: IEEE; ), 1–6. 10.1109/ECACE.2019.8679247 [CrossRef] [Google Scholar]
+

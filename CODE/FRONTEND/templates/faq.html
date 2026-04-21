@@ -1,0 +1,96 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<section id="contact" class="contact" style="margin-left: 600px;">
+
+    <style>
+        .answer {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .question {
+            cursor: pointer;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+    </style>
+
+
+
+
+  <div class="section-title">
+      <h2 style=" color: rgb(255, 0, 0);">Frequently Asked Questions</h2>
+  </div>
+
+  <div class="col-12">
+        <div class="form-group mt-3">
+            <div class="question" onclick="toggleAnswer('a1')">What is Parkinson's disease?</div>
+            <div id="a1" class="answer">Parkinson's disease is a neurodegenerative disorder that primarily affects movement. It is characterized by the gradual loss of dopamine-producing neurons in the brain, leading to symptoms such as tremors, rigidity, and bradykinesia (slowness of movement).</div>
+        </div><br>
+
+        <div class="form-group mt-3">
+            <div class="question" onclick="toggleAnswer('a2')">What are the symptoms of Parkinson's disease?</div>
+            <div id="a2" class="answer">Common symptoms include tremors (shaking), muscle rigidity, bradykinesia, postural instability (balance problems), and changes in speech and handwriting. Some people may also experience non-motor symptoms like sleep disturbances, depression, and cognitive changes.</div>
+        </div><br>
+
+        <div class="form-group mt-3">
+            <div class="question" onclick="toggleAnswer('a3')">What causes Parkinson's disease?</div>
+            <div id="a3" class="answer">The exact cause is unknown, but it's believed to involve a combination of genetic and environmental factors. Certain genetic mutations and environmental exposures may increase the risk, but not everyone with these factors will develop the disease.</div>
+        </div><br>
+
+        <div class="form-group mt-3">
+            <div class="question" onclick="toggleAnswer('a4')">How is Parkinson's disease diagnosed?</div>
+            <div id="a4" class="answer">Diagnosis is primarily based on medical history and neurological examination. There is no definitive test for Parkinson's, but imaging tests like MRI or PET scans can help rule out other conditions. Sometimes, a trial of Parkinson's medication can help confirm the diagnosis.</div>
+        </div><br>
+
+        <div class="form-group mt-3">
+            <div class="question" onclick="toggleAnswer('a5')">What are the treatment options for Parkinson's disease?</div>
+            <div id="a5" class="answer">Treatment usually involves medication to manage symptoms, such as levodopa, dopamine agonists, and MAO-B inhibitors. Physical therapy, occupational therapy, and speech therapy can also help. In some cases, surgical options like deep brain stimulation may be considered.</div>
+        </div><br>
+
+        <div class="form-group mt-3">
+            <div class="question" onclick="toggleAnswer('a6')">Can Parkinson's disease be cured?</div>
+            <div id="a6" class="answer">Currently, there is no cure for Parkinson's disease. Treatments focus on managing symptoms and improving quality of life. Research is ongoing to find better treatments and potentially a cure.</div>
+        </div><br>
+
+        <div class="form-group mt-3">
+            <div class="question" onclick="toggleAnswer('a7')">How does Parkinson's disease progress?</div>
+            <div id="a7" class="answer">Parkinson's disease is progressive, meaning symptoms typically worsen over time. However, the rate of progression can vary widely among individuals. Early diagnosis and treatment can help manage symptoms and improve quality of life.</div>
+        </div><br>
+
+        <div class="form-group mt-3">
+            <div class="question" onclick="toggleAnswer('a8')">Are there any lifestyle changes or therapies that can help manage Parkinson's disease?</div>
+            <div id="a8" class="answer">Yes, regular exercise, a balanced diet, and therapies such as physical and occupational therapy can help manage symptoms and maintain mobility. Stress management and support groups can also be beneficial.</div>
+        </div><br>
+
+        <div class="form-group mt-3">
+            <div class="question" onclick="toggleAnswer('a9')">What is the role of caregivers in managing Parkinson's disease?</div>
+            <div id="a9" class="answer">Caregivers play a crucial role in helping individuals with Parkinson's manage daily activities, medication schedules, and overall well-being. They provide emotional support and help coordinate medical care.</div>
+        </div><br>
+
+        <div class="form-group mt-3">
+            <div class="question" onclick="toggleAnswer('a10')">Where can I find support and resources for Parkinson's disease?</div>
+            <div id="a10" class="answer">Support can be found through organizations like the Parkinson’s Foundation, the Michael J. Fox Foundation, and local support groups. These organizations offer resources, educational materials, and community support for individuals and their families.</div>
+        </div><br>
+    </div>
+            
+  </div>
+</section>
+
+<script>
+    function toggleAnswer(answerId) {
+        const answerElement = document.getElementById(answerId);
+        if (answerElement.style.display === "none" || !answerElement.style.display) {
+            answerElement.style.display = "block";
+        } else {
+            answerElement.style.display = "none";
+        }
+    }
+</script>
+
+
+  {% endblock %}

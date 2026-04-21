@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% block content %}
+
+  <center>
+      {% if accuracy %}
+          <center>
+          <h2 style="color: rgb(255, 0, 0);">{{accuracy}}</h2><br><br>
+          </center>
+      {% endif %}
+
+      <div class="section-title">
+          <h2 style="color: rgb(255, 0, 0);">Select Algorithm</h2>
+      </div>
+
+      <form action="{{url_for('model')}}" method="post">
+          <div class="col-6">
+          <center>
+              <select class="form-select" name="Algorithm" required><br><br>
+                  <option hidden>Select Algorithm</option>
+                  <option value="1">RandomForestClassifier</option>
+                  <option value="2">SVC</option>
+                  <option value="3">CNN</option> 
+              </select><br><br><br>
+
+              &nbsp<input type="submit" value="Submit" class="btn btn-primary"></i></input>
+          </center>
+          </div><br>
+      </form>
+  </center>
+</section>
+
+{% endblock %}

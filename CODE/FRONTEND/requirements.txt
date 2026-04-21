@@ -1,0 +1,10 @@
+Flask
+flask-cors
+numpy
+pandas
+scikit-learn
+imbalanced-learn
+python-dotenv
+google-generativeai
+requests
+gunicorn
