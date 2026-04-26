@@ -308,7 +308,7 @@ def view():
     df = pd.read_csv('test.csv')
     dummy = df.head(100).to_html()
     return render_template('view.html', data=dummy)
+import os
 
-
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
